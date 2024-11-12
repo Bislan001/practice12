@@ -12,77 +12,74 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
     var on: Boolean = true
-    fun RadioButton1(view: View){
+    fun RadioButton1(view: View) {
         val radioBtn4 = findViewById<RadioButton>(R.id.radioButton4)
         val radioBtn5 = findViewById<RadioButton>(R.id.radioButton5)
         val radioBtn6 = findViewById<RadioButton>(R.id.radioButton6)
         val ImageView1 = findViewById<ImageView>(R.id.imageView1)
-        if (radioBtn4.isChecked){
+        if (radioBtn4.isChecked) {
             ImageView1.setImageResource(R.drawable.apple)
         }
-        if (radioBtn5.isChecked){
+        if (radioBtn5.isChecked) {
             ImageView1.setImageResource(R.drawable.grusha)
         }
-        if (radioBtn6.isChecked){
+        if (radioBtn6.isChecked) {
             ImageView1.setImageResource(R.drawable.vinograde)
         }
-
 
 
     }
 
 
     fun Images(view: View) {
-        val ImageView2 = findViewById<ImageView>(R.id.imageView2)
-        val ImageView3 = findViewById<ImageView>(R.id.imageView3)
-        val ImageView4 = findViewById<ImageView>(R.id.imageView4)
-        val CheckBox = findViewById<CheckBox>(R.id.checkBox)
-        val CheckBox2 = findViewById<CheckBox>(R.id.checkBox2)
-        val CheckBox3 = findViewById<CheckBox>(R.id.checkBox3)
-        if (CheckBox.isChecked){
-            ImageView2.setImageResource(R.drawable.apple)
-            ImageView2.visibility = View.VISIBLE
-            ImageView3.visibility = View.INVISIBLE
-            ImageView4.visibility = View.INVISIBLE
+        val imageView2 = findViewById<ImageView>(R.id.imageView2)
+        val imageView3 = findViewById<ImageView>(R.id.imageView3)
+        val imageView4 = findViewById<ImageView>(R.id.imageView4)
+        val checkBox1 = findViewById<CheckBox>(R.id.checkBox)
+        val checkBox2 = findViewById<CheckBox>(R.id.checkBox2)
+        val checkBox3 = findViewById<CheckBox>(R.id.checkBox3)
 
-        }
-        if (CheckBox2.isChecked) {
-            ImageView3.setImageResource(R.drawable.grusha)
-            ImageView2.visibility = View.INVISIBLE
-            ImageView3.visibility = View.VISIBLE
-            ImageView4.visibility = View.INVISIBLE
+        val imageView = findViewById<ImageView>(R.id.imageView1)
+        when (checked) {
 
-        }
-        if (CheckBox3.isChecked){
-            ImageView4.setImageResource(R.drawable.vinograde)
-            ImageView2.visibility = View.INVISIBLE
-            ImageView3.visibility = View.INVISIBLE
-            ImageView4.visibility = View.VISIBLE
-        }
-        if (CheckBox.isChecked && CheckBox2.isChecked){
-            ImageView4.setImageResource(R.drawable.vinograde)
-            ImageView2.visibility = View.VISIBLE
-            ImageView3.visibility = View.VISIBLE
-            ImageView4.visibility = View.INVISIBLE
-        }
-        if (CheckBox3.isChecked && CheckBox2.isChecked){
-            ImageView4.setImageResource(R.drawable.vinograde)
-            ImageView2.visibility = View.INVISIBLE
-            ImageView3.visibility = View.VISIBLE
-            ImageView4.visibility = View.VISIBLE
-        }
-        if (CheckBox3.isChecked && CheckBox2.isChecked && CheckBox.isChecked){
-            ImageView4.setImageResource(R.drawable.vinograde)
-            ImageView2.visibility = View.VISIBLE
-            ImageView3.visibility = View.VISIBLE
-            ImageView4.visibility = View.VISIBLE
+            R.id.radioButton4 -> imageView.setImageResource(R.drawable.apple)
+            R.id.radioButton5 -> imageView.setImageResource(R.drawable.grusha)
+            R.id.radioButton6 -> imageView.setImageResource(R.drawable.vinograde)
         }
 
 
 
+        checkBox1.setOnCheckedChangeListener { _, checked ->
+            if (checked) {
+                imageView2.setImageResource(R.drawable.apple)
+            } else {
+                imageView2.setImageDrawable(null)
+            }
+
+
+        }
+        checkBox2.setOnCheckedChangeListener { _, checked ->
+
+            if (checked) {
+                imageView3.setImageResource(R.drawable.grusha)
+            } else {
+                imageView3.setImageDrawable(null)
+            }
+        }
+
+        checkBox3.setOnCheckedChangeListener { _, checked ->
+
+            if (checked) {
+                imageView4.setImageResource(R.drawable.vinograde)
+            } else {
+                imageView4.setImageDrawable(null)
+            }
+        }
     }
-}
+    }
+
 
 
 
